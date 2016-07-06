@@ -10,22 +10,25 @@ import nltk
 script, filename = argv
 txt = open(filename)
 
-tokens = nltk.word_tokenize(filename)
-tokens=('A', 'eight', 'on', 'Thursday', 'morning', 'Arthur', 'did', 'feel', 'very', 'good')
+nltk.download('all')
+
+with open(filename) as textfile:
+        textContent=textfile.read()
+
+tokens = nltk.word_tokenize(textContent)
+tokens
 
 tagged = nltk.pos_tag(tokens)
 tagged[0:6]
-[('At', 'IN'), ('eight', 'CD'), ("o'clock", 'JJ'), ('on', 'IN'),
-('Thursday', 'NNP'), ('morning', 'NN')]
 
 entities = nltk.chunk.ne_chunk(tagged)
 entities
-Tree('S', [('At', 'IN'), ('eight', 'CD'), ("o'clock", 'JJ'),
-           ('on', 'IN'), ('Thursday', 'NNP'), ('morning', 'NN'),
-       Tree('PERSON', [('Arthur', 'NNP')]),
-           ('did', 'VBD'), ("n't", 'RB'), ('feel', 'VB'),
-           ('very', 'RB'), ('good', 'JJ'), ('.', '.')])
 
-from nltk.corpus import treebank
-t = treebank.parsed_sents('wsj_0001.mrg')[0]
-t.draw()
+# output
+txtOut = open(filename + "Md", "w")
+txtOut.write(txtContent)
+txtOut.close()
+
+# from nltk.corpus import treebank
+# t = treebank.parsed_sents('wsj_0001.mrg')[0]
+# t.draw()
