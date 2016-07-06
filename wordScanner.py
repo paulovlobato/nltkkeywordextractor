@@ -10,23 +10,23 @@ import nltk
 script, filename = argv
 txt = open(filename)
 
-nltk.download('all')
+#nltk.download('all')
 
 with open(filename) as textfile:
         textContent=textfile.read()
 
 tokens = nltk.word_tokenize(textContent)
-tokens
+print tokens
 
 tagged = nltk.pos_tag(tokens)
-tagged[0:6]
+print tagged[0:6]
 
 entities = nltk.chunk.ne_chunk(tagged)
-entities
+print entities
 
 # output
 txtOut = open(filename + "Md", "w")
-txtOut.write(txtContent)
+txtOut.write(str(entities))
 txtOut.close()
 
 # from nltk.corpus import treebank
