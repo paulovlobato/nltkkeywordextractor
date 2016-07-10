@@ -3,6 +3,10 @@
 
 from sys import argv
 import nltk
+import collections
+from collections import Counter
+import re
+from nltk import FreqDist
 from nltk.corpus import stopwords
 
 # nltk.download('punkt')
@@ -15,11 +19,11 @@ txt = open(filename)
 
 with open(filename) as textfile:
         textContent=textfile.read()
-
 tokens = nltk.word_tokenize(textContent)
 
 stopwords = stopwords.words('english')
 filteredWords = [token for token in tokens if token not in stopwords]
 
-print tokens
+termFrequency = Counter(filteredWords)
 print filteredWords
+print termFrequency
