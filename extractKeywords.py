@@ -38,7 +38,7 @@ termFrequency = Counter(filteredWords)
 txtOut = open(filename + "Data", "w")
 
 for key, value in termFrequency.items():
-	txtOut.write(str(key) + "," + str(value) + "\n")
+	txtOut.write(str(key) + ":" + str(value) + "\n")
 #	print(key,value)
 
 txtOut.close()
